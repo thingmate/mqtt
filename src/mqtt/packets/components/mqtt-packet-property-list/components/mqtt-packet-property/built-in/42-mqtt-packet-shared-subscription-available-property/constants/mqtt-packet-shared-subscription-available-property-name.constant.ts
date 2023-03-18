@@ -1,0 +1,1 @@
+export const MQTT_PACKET_SHARED_SUBSCRIPTION_AVAILABLE_PROPERTY_NAME = 'sharedSubscriptionAvailable';

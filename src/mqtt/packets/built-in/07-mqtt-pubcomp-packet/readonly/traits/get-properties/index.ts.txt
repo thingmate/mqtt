@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-pubcomp-packet.get-properties.function-definition';
+export * from './readonly-mqtt-pubcomp-packet.get-properties.trait';

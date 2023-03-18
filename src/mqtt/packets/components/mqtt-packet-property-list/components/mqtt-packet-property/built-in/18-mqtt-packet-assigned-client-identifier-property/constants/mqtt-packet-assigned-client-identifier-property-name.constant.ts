@@ -1,0 +1,1 @@
+export const MQTT_PACKET_ASSIGNED_CLIENT_IDENTIFIER_PROPERTY_NAME = 'assignedClientIdentifier';

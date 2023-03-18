@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-connect-packet.get-client-id.function-definition';
+export * from './readonly-mqtt-connect-packet.get-client-id.trait';

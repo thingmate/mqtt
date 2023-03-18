@@ -1,0 +1,5 @@
+export const enum PUBREL_REASON_CODE {
+  SUCCESS = 0,
+  PACKET_IDENTIFIER_NOT_FOUND = 146,
+}
+

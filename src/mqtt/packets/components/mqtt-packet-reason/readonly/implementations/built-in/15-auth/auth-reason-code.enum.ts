@@ -1,0 +1,6 @@
+export const enum AUTH_REASON_CODE {
+  SUCCESS = 0,
+  CONTINUE_AUTHENTICATION = 24,
+  REAUTHENTICATE = 25,
+}
+

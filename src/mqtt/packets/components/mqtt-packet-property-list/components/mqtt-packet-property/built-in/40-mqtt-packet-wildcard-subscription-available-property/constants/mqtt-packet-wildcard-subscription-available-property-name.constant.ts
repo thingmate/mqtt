@@ -1,0 +1,1 @@
+export const MQTT_PACKET_WILDCARD_SUBSCRIPTION_AVAILABLE_PROPERTY_NAME = 'wildcardSubscriptionAvailable';

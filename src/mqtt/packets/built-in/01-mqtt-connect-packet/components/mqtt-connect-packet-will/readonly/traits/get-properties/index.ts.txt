@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-connect-packet-will.get-properties.function-definition';
+export * from './readonly-mqtt-connect-packet-will.get-properties.trait';

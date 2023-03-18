@@ -1,0 +1,1 @@
+export const MQTT_PACKET_SESSION_EXPIRY_INTERVAL_PROPERTY_NAME = 'sessionExpiryInterval';

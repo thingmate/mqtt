@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-connect-packet.get-keepalive.function-definition';
+export * from './readonly-mqtt-connect-packet.get-keepalive.trait';

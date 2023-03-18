@@ -1,0 +1,30 @@
+{
+  "name": "@thingmate/mqtt",
+  "version": "1.0.0",
+  "description": "MQTT client for the browser and nodejs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thingmate/mqtt"
+  },
+  "keywords": [],
+  "author": "Valentin Richard",
+  "license": "MIT",
+  "access": "public",
+  "dependencies": {
+    "@lifaon/number-types": "1.0.0",
+    "@lifaon/traits": "3.0.0",
+    "@lirx/utils": "1.1.0",
+    "@lirx/core": "1.3.0",
+    "@lirx/async-task": "0.8.0",
+    "@lirx/stream": "0.8.0"
+  },
+  "linkedDependencies": [
+    "@lifaon/number-types",
+    "@lifaon/traits",
+    "@lirx/core",
+    "@lirx/utils",
+    "@lirx/promise",
+    "@lirx/async-task",
+    "@lirx/stream"
+  ]
+}

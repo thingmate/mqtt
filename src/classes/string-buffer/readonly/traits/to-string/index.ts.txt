@@ -1,0 +1,2 @@
+export * from './readonly-string-buffer.to-string.function-definition';
+export * from './readonly-string-buffer.to-string.trait';

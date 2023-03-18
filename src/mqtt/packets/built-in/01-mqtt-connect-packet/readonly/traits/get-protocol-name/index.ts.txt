@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-connect-packet.get-protocol-name.function-definition';
+export * from './readonly-mqtt-connect-packet.get-protocol-name.trait';

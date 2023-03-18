@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-unsuback-packet.get-properties.function-definition';
+export * from './readonly-mqtt-unsuback-packet.get-properties.trait';

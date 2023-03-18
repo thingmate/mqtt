@@ -1,0 +1,2 @@
+export * from './readonly-mqtt-packet-reason.get-message.function-definition';
+export * from './readonly-mqtt-packet-reason.get-message.trait';
