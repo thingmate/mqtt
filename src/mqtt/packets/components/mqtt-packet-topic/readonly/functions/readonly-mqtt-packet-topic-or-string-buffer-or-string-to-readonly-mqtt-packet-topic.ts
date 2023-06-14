@@ -16,6 +16,7 @@ export function readonlyMqttPacketTopicOrReadonlyStringBufferOrStringToReadonlyM
   return (typeof input === 'string')
     ? createReadonlyMqttPacketTopicFromString(input)
     : (
+      // @ts-ignore
       (typeof input['matches'] === 'function')
         ? (input as IReadonlyMqttPacketTopic)
         : createReadonlyMqttPacketTopicFromStringBuffer(input)

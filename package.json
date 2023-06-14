@@ -10,21 +10,21 @@
   "author": "Valentin Richard",
   "license": "MIT",
   "access": "public",
+  "sideEffects": false,
   "dependencies": {
-    "@lifaon/number-types": "1.0.0",
-    "@lifaon/traits": "3.0.0",
-    "@lirx/utils": "1.1.0",
-    "@lirx/core": "1.3.0",
-    "@lirx/async-task": "0.8.0",
-    "@lirx/stream": "0.8.0"
+    "@lifaon/number-types": "latest",
+    "@lifaon/traits": "^3.0.0",
+    "@lirx/utils": "latest",
+    "@lirx/core": "latest",
+    "@lirx/async-task": "latest",
+    "@lirx/stream": "latest"
   },
-  "linkedDependencies": [
-    "@lifaon/number-types",
-    "@lifaon/traits",
-    "@lirx/core",
-    "@lirx/utils",
-    "@lirx/promise",
-    "@lirx/async-task",
-    "@lirx/stream"
-  ]
+  "_dependencies": {
+    "@lifaon/number-types": "^1.0.0",
+    "@lifaon/traits": "^3.0.0",
+    "@lirx/utils": "^1.1.1",
+    "@lirx/core": "^1.3.0",
+    "@lirx/async-task": "^1.0.0",
+    "@lirx/stream": "^0.8.0"
+  }
 }
