@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-unsuback-packet.get-reason.function-definition';
-export * from './readonly-mqtt-unsuback-packet.get-reason.trait';

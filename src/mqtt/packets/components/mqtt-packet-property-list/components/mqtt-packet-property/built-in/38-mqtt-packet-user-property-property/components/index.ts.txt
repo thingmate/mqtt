@@ -1,1 +1,0 @@
-export * from './mqtt-packet-user-property-entry/index';

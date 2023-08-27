@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-connect-packet.get-username.function-definition';
-export * from './readonly-mqtt-connect-packet.get-username.trait';

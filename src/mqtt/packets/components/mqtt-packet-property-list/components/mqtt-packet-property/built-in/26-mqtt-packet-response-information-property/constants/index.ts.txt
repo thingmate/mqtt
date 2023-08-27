@@ -1,2 +1,0 @@
-export * from './mqtt-packet-response-information-property-code.constant';
-export * from './mqtt-packet-response-information-property-name.constant';

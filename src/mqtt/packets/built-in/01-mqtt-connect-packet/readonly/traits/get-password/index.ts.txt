@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-connect-packet.get-password.function-definition';
-export * from './readonly-mqtt-connect-packet.get-password.trait';

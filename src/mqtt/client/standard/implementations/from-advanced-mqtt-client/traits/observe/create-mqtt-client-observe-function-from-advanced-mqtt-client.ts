@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { Abortable, AsyncTask, AbortableController } from '@lirx/async-task';
 import { IObservable, IObserver, IUnsubscribeOfObservable } from '@lirx/core';
 import {
   IStandardMqttPublishPacket,
@@ -32,7 +32,8 @@ export function createMqttClientObserveFunctionFromAdvancedMqttClient(
     ): IUnsubscribeOfObservable => {
       let running: boolean = true;
 
-      const [abort, abortable] = Abortable.derive();
+      const abortableController: AbortableController = new AbortableController();
+      const abortable: Abortable = abortableController.abortable;
 
       const source = on(topic);
 
@@ -55,7 +56,7 @@ export function createMqttClientObserveFunctionFromAdvancedMqttClient(
       return (): void => {
         if (running) {
           running = false;
-          abort('Aborted');
+          abortableController.abort('Aborted');
           unsubscribe({
             topic,
             abortable: Abortable.never,

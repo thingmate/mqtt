@@ -1,7 +1,6 @@
 import { decodeUint8ArrayToString } from '../../functions/decode-uint8-array-to-string';
 import { IReadonlyStringBuffer } from '../readonly-string-buffer.type';
 
-
 export interface IReadonlyStringBufferContext {
   buffer: Uint8Array;
 }

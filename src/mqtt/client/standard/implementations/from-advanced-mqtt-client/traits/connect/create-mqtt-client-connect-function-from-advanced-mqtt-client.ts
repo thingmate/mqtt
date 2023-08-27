@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { Abortable, AsyncTask, AbortableController } from '@lirx/async-task';
 import {
   standardMqttConnectPacketToReadonlyMqttConnectPacket,
 } from '../../../../../../packets/built-in/01-mqtt-connect-packet/readonly/standard/standard-mqtt-connect-packet-to-readonly-mqtt-connect-packet';
@@ -36,33 +36,35 @@ export function createMqttClientConnectFunctionFromAdvancedMqttClient(
       abortable,
     }: IMqttClientConnectFunctionOptions,
   ): AsyncTask<IStandardMqttConnackPacket> => {
-    return advancedMqttClient.connect(
-      standardMqttConnectPacketToReadonlyMqttConnectPacket({
-        protocolName: 'MQTT',
-        protocolVersion,
-        clean,
-        keepalive,
-        clientId,
-        properties,
-        will,
-        username,
-        password,
-      }),
-      Abortable.merge(abortable, globalAbortable),
-    )
-      .successful((
-        connackPacket: IReadonlyMqttConnackPacket,
-      ): IStandardMqttConnackPacket => {
-        advancedMqttClient.watch(globalAbortable);
-
-        advancedMqttClient.pingLoop({
-          abortable: globalAbortable,
+    return AsyncTask.switchAbortable(
+      advancedMqttClient.connect(
+        standardMqttConnectPacketToReadonlyMqttConnectPacket({
+          protocolName: 'MQTT',
+          protocolVersion,
+          clean,
           keepalive,
-          connackPacket,
-        });
+          clientId,
+          properties,
+          will,
+          username,
+          password,
+        }),
+        new AbortableController([abortable, globalAbortable]).abortable,
+      )
+        .successful((
+          connackPacket: IReadonlyMqttConnackPacket,
+        ): IStandardMqttConnackPacket => {
+          advancedMqttClient.watch(globalAbortable);
 
-        return readonlyMqttConnackPacketToStandardMqttConnackPacket(connackPacket);
-      })
-      .switchAbortable(abortable);
+          advancedMqttClient.pingLoop({
+            abortable: globalAbortable,
+            keepalive,
+            connackPacket,
+          });
+
+          return readonlyMqttConnackPacketToStandardMqttConnackPacket(connackPacket);
+        }),
+      abortable,
+    );
   };
 }

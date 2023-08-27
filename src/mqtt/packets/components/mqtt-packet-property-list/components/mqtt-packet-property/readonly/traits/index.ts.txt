@@ -1,3 +1,0 @@
-export * from './get-code/index';
-export * from './get-name/index';
-export * from './get-value/index';

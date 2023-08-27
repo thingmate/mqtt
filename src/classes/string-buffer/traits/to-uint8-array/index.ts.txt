@@ -1,2 +1,0 @@
-export * from './string-buffer.to-uint8-array.function-definition';
-export * from './string-buffer.to-uint8-array.trait';

@@ -1,4 +1,4 @@
-import { Abortable } from '@lirx/async-task';
+import { Abortable, AbortableController } from '@lirx/async-task';
 import { IAdvancedMqttClient } from '../../../advanced/advanced-mqtt-client.type';
 import { IMqttClient } from '../../mqtt-client.type';
 import { IMqttClientConnectFunction } from '../../traits/connect/mqtt-client.connect.function-definition';
@@ -31,7 +31,8 @@ import {
 export function createMqttClientFromAdvancedMqttClient(
   advancedMqttClient: IAdvancedMqttClient,
 ): IMqttClient {
-  const [abort, globalAbortable] = Abortable.derive();
+  const globalAbortableController: AbortableController = new AbortableController();
+  const globalAbortable: Abortable = globalAbortableController.abortable;
 
   const connect: IMqttClientConnectFunction = createMqttClientConnectFunctionFromAdvancedMqttClient(advancedMqttClient, globalAbortable);
 
@@ -40,7 +41,7 @@ export function createMqttClientFromAdvancedMqttClient(
   const disconnect: IMqttClientDisconnectFunction = (
     ...args: Parameters<IMqttClientDisconnectFunction>
   ): ReturnType<IMqttClientDisconnectFunction> => {
-    abort('Disconnect');
+    globalAbortableController.abort('Disconnect');
     return _disconnect(...args);
   };
 

@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-packet-property.get-name.function-definition';
-export * from './readonly-mqtt-packet-property.get-name.trait';

@@ -1,2 +1,0 @@
-export * from './mqtt-packet-maximum-packet-size-property-code.constant';
-export * from './mqtt-packet-maximum-packet-size-property-name.constant';

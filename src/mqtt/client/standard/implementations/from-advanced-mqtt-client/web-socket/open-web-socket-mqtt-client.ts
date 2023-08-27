@@ -1,7 +1,5 @@
 import { AsyncTask } from '@lirx/async-task';
-import {
-  IWebSocketStreamUntilClosedFunction,
-} from '@lirx/stream/src/built-in/web-socket-stream/traits/until-closed/web-socket-stream.until-closed.function-definition';
+import { IWebSocketStreamUntilClosedFunction } from '@lirx/stream';
 import {
   IOpenWebSocketAdvancedMqttClientOptions,
   openWebSocketAdvancedMqttClient,

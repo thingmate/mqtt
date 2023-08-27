@@ -1,2 +1,0 @@
-export * from './mqtt-packet-topic-alias-maximum-property-code.constant';
-export * from './mqtt-packet-topic-alias-maximum-property-name.constant';

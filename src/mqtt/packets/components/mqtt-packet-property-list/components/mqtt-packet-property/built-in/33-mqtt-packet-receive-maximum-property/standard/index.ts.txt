@@ -1,3 +1,0 @@
-export * from './mqtt-packet-receive-maximum-property-to-standard-mqtt-packet-receive-maximum-property';
-export * from './standard-mqtt-packet-receive-maximum-property-to-mqtt-packet-receive-maximum-property';
-export * from './standard-mqtt-packet-receive-maximum-property.type';

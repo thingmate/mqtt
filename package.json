@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/thingmate/mqtt"
   },
+  "scripts": {
+    "reinstall": "rm -rf ./node_modules && rm -f ./yarn.lock && yarn install"
+  },
   "keywords": [],
   "author": "Valentin Richard",
   "license": "MIT",
@@ -14,17 +17,13 @@
   "dependencies": {
     "@lifaon/number-types": "latest",
     "@lifaon/traits": "^3.0.0",
-    "@lirx/utils": "latest",
-    "@lirx/core": "latest",
     "@lirx/async-task": "latest",
-    "@lirx/stream": "latest"
+    "@lirx/core": "latest",
+    "@lirx/stream": "latest",
+    "@lirx/unsubscribe": "latest",
+    "@lirx/utils": "latest"
   },
-  "_dependencies": {
-    "@lifaon/number-types": "^1.0.0",
-    "@lifaon/traits": "^3.0.0",
-    "@lirx/utils": "^1.1.1",
-    "@lirx/core": "^1.3.0",
-    "@lirx/async-task": "^1.0.0",
-    "@lirx/stream": "^0.8.0"
+  "devDependencies": {
+    "@types/jest": "^29.5.3"
   }
 }

@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-publish-packet.get-topic.function-definition';
-export * from './readonly-mqtt-publish-packet.get-topic.trait';

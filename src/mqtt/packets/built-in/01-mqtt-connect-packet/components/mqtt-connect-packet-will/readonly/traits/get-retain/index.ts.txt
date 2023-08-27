@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-connect-packet-will.get-retain.function-definition';
-export * from './readonly-mqtt-connect-packet-will.get-retain.trait';

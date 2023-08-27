@@ -1,3 +1,0 @@
-export * from './mqtt-packet-message-expiry-interval-property-to-standard-mqtt-packet-message-expiry-interval-property';
-export * from './standard-mqtt-packet-message-expiry-interval-property-to-mqtt-packet-message-expiry-interval-property';
-export * from './standard-mqtt-packet-message-expiry-interval-property.type';

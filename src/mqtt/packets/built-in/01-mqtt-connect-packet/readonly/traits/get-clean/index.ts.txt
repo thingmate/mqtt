@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-connect-packet.get-clean.function-definition';
-export * from './readonly-mqtt-connect-packet.get-clean.trait';

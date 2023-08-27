@@ -1,1 +1,0 @@
-export * from './readonly-string-buffer-or-string-to-string';

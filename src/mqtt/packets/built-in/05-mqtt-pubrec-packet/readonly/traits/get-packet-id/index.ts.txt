@@ -1,2 +1,0 @@
-export * from './readonly-mqtt-pubrec-packet.get-packet-id.function-definition';
-export * from './readonly-mqtt-pubrec-packet.get-packet-id.trait';

@@ -1,3 +1,0 @@
-export * from './mqtt-packet-topic-alias-property-to-standard-mqtt-packet-topic-alias-property';
-export * from './standard-mqtt-packet-topic-alias-property-to-mqtt-packet-topic-alias-property';
-export * from './standard-mqtt-packet-topic-alias-property.type';

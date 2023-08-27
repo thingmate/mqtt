@@ -1,2 +1,0 @@
-export * from './string-buffer.set.function-definition';
-export * from './string-buffer.set.trait';

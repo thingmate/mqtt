@@ -1,3 +1,0 @@
-export * from './get/index';
-export * from './get-size/index';
-export * from './list-properties/index';
