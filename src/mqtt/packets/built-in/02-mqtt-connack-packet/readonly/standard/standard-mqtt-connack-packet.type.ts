@@ -6,7 +6,7 @@ import { IMqttConnackPacketType } from '../../constants/mqtt-connack-packet-type
 import { IStandardMqttConnackPacketProperties } from './standard-mqtt-connack-packet-properties.type';
 
 export interface IStandardMqttConnackPacket extends IStandardMqttPacket<IMqttConnackPacketType> {
-  sessionPresent: boolean;
-  reason: IGenericStandardMqttPacketConnackReason;
-  properties: IStandardMqttConnackPacketProperties;
+  readonly sessionPresent: boolean;
+  readonly reason: IGenericStandardMqttPacketConnackReason;
+  readonly properties: IStandardMqttConnackPacketProperties;
 }

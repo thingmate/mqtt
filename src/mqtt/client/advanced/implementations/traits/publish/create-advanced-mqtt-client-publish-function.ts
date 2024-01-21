@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask, IAsyncTaskErrorFunction, IAsyncTaskSuccessFunction } from '@lirx/async-task';
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import { QOS } from '../../../../../constants/qos.enum';
 import {
   IReadonlyMqttPublishPacket,
@@ -46,9 +46,9 @@ import {
 import { pushSourceWithBackPressureToAsyncTask } from '../../functions/push-source-with-back-pressure-to-async-task';
 
 export interface ICreateAdvancedMqttClientPublishFunctionOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
-  packetIdManager: IMqttPacketIdManager;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly packetIdManager: IMqttPacketIdManager;
 }
 
 export function createAdvancedMqttClientPublishFunction(
@@ -82,8 +82,7 @@ export function createAdvancedMqttClientPublishFunction(
         packet: IGenericMqttPacket,
         success: IAsyncTaskSuccessFunction<IReadonlyMqttPubackPacket>,
         error: IAsyncTaskErrorFunction,
-        abortable: Abortable,
-      ): AsyncTask<void> => {
+      ): void => {
         if (
           isMqttPubackPacket(packet)
           && (packet.getPacketId().get() === packetId!.get())
@@ -94,7 +93,6 @@ export function createAdvancedMqttClientPublishFunction(
             error(createPublishErrorFromMqttPubackPacket(packet));
           }
         }
-        return AsyncTask.void(abortable);
       }, input$, abortable);
     };
 
@@ -109,8 +107,7 @@ export function createAdvancedMqttClientPublishFunction(
           packet: IGenericMqttPacket,
           success: IAsyncTaskSuccessFunction<IReadonlyMqttPubrecPacket>,
           error: IAsyncTaskErrorFunction,
-          abortable: Abortable,
-        ): AsyncTask<void> => {
+        ): void => {
           if (isMqttPubrecPacket(packet)) {
             if (packet.getPacketId().get() === packetId!.get()) {
               if (packet.getReason().getCode() === PUBREC_REASON_CODE.SUCCESS) {
@@ -120,7 +117,6 @@ export function createAdvancedMqttClientPublishFunction(
               }
             }
           }
-          return AsyncTask.void(abortable);
         }, input$, abortable);
       };
 
@@ -131,8 +127,7 @@ export function createAdvancedMqttClientPublishFunction(
           packet: IGenericMqttPacket,
           success: IAsyncTaskSuccessFunction<IReadonlyMqttPubcompPacket>,
           error: IAsyncTaskErrorFunction,
-          abortable: Abortable,
-        ): AsyncTask<void> => {
+        ): void => {
           if (isMqttPubcompPacket(packet)) {
             if (packet.getPacketId().get() === packetId!.get()) {
               if (packet.getReason().getCode() === PUBCOMP_REASON_CODE.SUCCESS) {
@@ -142,7 +137,6 @@ export function createAdvancedMqttClientPublishFunction(
               }
             }
           }
-          return AsyncTask.void(abortable);
         }, input$, abortable);
       };
 

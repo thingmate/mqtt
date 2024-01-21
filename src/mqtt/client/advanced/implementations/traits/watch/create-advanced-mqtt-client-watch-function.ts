@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask } from '@lirx/async-task';
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import { isMqttPubackPacket } from '../../../../../packets/built-in/04-mqtt-puback-packet/constants/is-mqtt-puback-packet';
 import { isMqttPubrecPacket } from '../../../../../packets/built-in/05-mqtt-pubrec-packet/constants/is-mqtt-pubrec-packet';
 import {
@@ -21,9 +21,9 @@ import { IGenericMqttPacket } from '../../../../../packets/components/mqtt-packe
 import { IAdvancedMqttClientWatchFunction } from '../../../traits/watch/advanced-mqtt-client.watch.function-definition';
 
 export interface ICreateAdvancedMqttClientWatchFunctionOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
-  packetIdManager: IMqttPacketIdManager;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly packetIdManager: IMqttPacketIdManager;
 }
 
 export function createAdvancedMqttClientWatchFunction(

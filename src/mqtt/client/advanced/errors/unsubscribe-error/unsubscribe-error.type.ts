@@ -5,7 +5,7 @@ import {
 import { IUnsubscribeErrorName } from './unsubscribe-error-name.constant';
 
 export interface IUnsubscribeErrorOptions extends ICustomErrorMessageOptionalOptions {
-  reasonCode?: UNSUBACK_REASON_CODE;
+  readonly reasonCode?: UNSUBACK_REASON_CODE;
 }
 
 export interface IUnsubscribeErrorProperties {

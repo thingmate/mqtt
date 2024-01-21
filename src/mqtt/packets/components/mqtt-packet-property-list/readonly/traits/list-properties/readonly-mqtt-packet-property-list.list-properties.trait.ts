@@ -4,5 +4,5 @@ import {
 } from './readonly-mqtt-packet-property-list.list-properties.function-definition';
 
 export interface IReadonlyMqttPacketPropertyListListPropertiesTrait<GProperty extends IGenericReadonlyMqttPacketProperty> {
-  listProperties: IReadonlyMqttPacketPropertyListListPropertiesFunction<GProperty>;
+  readonly listProperties: IReadonlyMqttPacketPropertyListListPropertiesFunction<GProperty>;
 }

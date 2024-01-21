@@ -1,5 +1,5 @@
 import { AsyncTask } from '@lirx/async-task';
-import { IWebSocketStreamUntilClosedFunction } from '@lirx/stream';
+import { IWebSocketStreamGetStateFunction, IWebSocketStreamUntilClosedFunction } from '@lirx/stream';
 import {
   IOpenWebSocketAdvancedMqttClientOptions,
   openWebSocketAdvancedMqttClient,
@@ -34,11 +34,13 @@ export function openWebSocketMqttClient(
           });
       };
 
+      const getState: IWebSocketStreamGetStateFunction = websocketAdvancedMqttClient.getState;
       const untilClosed: IWebSocketStreamUntilClosedFunction = websocketAdvancedMqttClient.untilClosed;
 
       return {
         ...mqttClient,
         disconnect,
+        getState,
         untilClosed,
       };
     });

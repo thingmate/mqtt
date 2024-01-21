@@ -7,7 +7,7 @@ import { IMqttPubcompPacketType } from '../../constants/mqtt-pubcomp-packet-type
 import { IStandardMqttPubcompPacketProperties } from './standard-mqtt-pubcomp-packet-properties.type';
 
 export interface IStandardMqttPubcompPacket extends IStandardMqttPacket<IMqttPubcompPacketType> {
-  packetId: u16;
-  reason: IGenericStandardMqttPacketPubcompReason;
-  properties: IStandardMqttPubcompPacketProperties;
+  readonly packetId: u16;
+  readonly reason: IGenericStandardMqttPacketPubcompReason;
+  readonly properties: IStandardMqttPubcompPacketProperties;
 }

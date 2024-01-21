@@ -7,7 +7,7 @@ import { IMqttSubscribePacketType } from '../../constants/mqtt-subscribe-packet-
 import { IStandardMqttSubscribePacketProperties } from './standard-mqtt-subscribe-packet-properties.type';
 
 export interface IStandardMqttSubscribePacket extends IStandardMqttPacket<IMqttSubscribePacketType> {
-  packetId: u16; // only if qos > 0
-  properties: IStandardMqttSubscribePacketProperties;
-  subscriptions: readonly IStandardMqttSubscribePacketSubscription[];
+  readonly packetId: u16; // only if qos > 0
+  readonly properties: IStandardMqttSubscribePacketProperties;
+  readonly subscriptions: readonly IStandardMqttSubscribePacketSubscription[];
 }

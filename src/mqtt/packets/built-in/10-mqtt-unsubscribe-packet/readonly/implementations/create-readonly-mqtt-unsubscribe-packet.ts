@@ -7,9 +7,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-unsubscribe-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttUnsubscribePacketContext {
-  packetId: IReadonlyMqttPacketId;
-  properties: IReadonlyMqttUnsubscribePacketPropertyList;
-  unsubscriptions: readonly IReadonlyStringBuffer[];
+  readonly packetId: IReadonlyMqttPacketId;
+  readonly properties: IReadonlyMqttUnsubscribePacketPropertyList;
+  readonly unsubscriptions: readonly IReadonlyStringBuffer[];
 }
 
 export function createReadonlyMqttUnsubscribePacket(

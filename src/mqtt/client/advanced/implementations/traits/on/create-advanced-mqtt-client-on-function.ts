@@ -9,7 +9,7 @@ import { IGenericMqttPacket } from '../../../../../packets/components/mqtt-packe
 import { IAdvancedMqttClientOnFunction } from '../../../traits/on/advanced-mqtt-client.on.function-definition';
 
 export interface ICreateAdvancedMqttClientOnFunctionFromMqttPacketStreamOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
 }
 
 export function createAdvancedMqttClientOnFunction(

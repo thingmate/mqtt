@@ -8,7 +8,7 @@ import { IMqttPubrecPacketType } from '../../constants/mqtt-pubrec-packet-type.c
 import { IStandardMqttPubrecPacketProperties } from './standard-mqtt-pubrec-packet-properties.type';
 
 export interface IStandardMqttPubrecPacket extends IStandardMqttPacket<IMqttPubrecPacketType> {
-  packetId: u16;
-  reason: IGenericStandardMqttPacketPubrecReason;
-  properties: IStandardMqttPubrecPacketProperties;
+  readonly packetId: u16;
+  readonly reason: IGenericStandardMqttPacketPubrecReason;
+  readonly properties: IStandardMqttPubrecPacketProperties;
 }

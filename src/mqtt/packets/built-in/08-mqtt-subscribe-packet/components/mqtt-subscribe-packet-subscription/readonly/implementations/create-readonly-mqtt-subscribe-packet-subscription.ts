@@ -6,11 +6,11 @@ import {
 } from '../traits/get-retain-handling/mqtt-subscribe-packet-subscription-retain-handling.enum';
 
 export interface IReadonlyMqttSubscribePacketSubscriptionContext {
-  topic: IReadonlyMqttPacketTopic;
-  qos: QOS;
-  noLocal: boolean; // V5
-  retainAsPublished: boolean; // V5
-  retainHandling: MQTT_SUBSCRIBE_PACKET_SUBSCRIPTION_RETAIN_HANDLING; // V5
+  readonly topic: IReadonlyMqttPacketTopic;
+  readonly qos: QOS;
+  readonly noLocal: boolean; // V5
+  readonly retainAsPublished: boolean; // V5
+  readonly retainHandling: MQTT_SUBSCRIBE_PACKET_SUBSCRIPTION_RETAIN_HANDLING; // V5
 }
 
 export function createReadonlyMqttSubscribePacketSubscription(

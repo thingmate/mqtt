@@ -8,9 +8,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-connack-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttConnackPacketContext {
-  sessionPresent: boolean;
-  reason: IGenericMqttPacketConnackReason;
-  properties: IReadonlyMqttConnackPacketPropertyList;
+  readonly sessionPresent: boolean;
+  readonly reason: IGenericMqttPacketConnackReason;
+  readonly properties: IReadonlyMqttConnackPacketPropertyList;
 }
 
 export function createReadonlyMqttConnackPacket(

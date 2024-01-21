@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { Abortable, AsyncTask, IAsyncTaskInput } from '@lirx/async-task';
 import { IPushPipeWithBackPressure, IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import { IByteIteratorDecoder } from '../../../../../misc/codec/byte-iterator-decoder.type';
 import { IMqttProtocolVersion } from '../../../../constants/mqtt-protocol-version.type';
@@ -11,7 +11,7 @@ import {
 import { IGenericMqttPacket } from '../../../../packets/components/mqtt-packet/mqtt-packet.type';
 
 export interface IMapArrayBufferToMqttPacketWithBackPressureOptions {
-  protocolVersion: IMqttProtocolVersion,
+  readonly protocolVersion: IMqttProtocolVersion,
 }
 
 export function mapArrayBufferToMqttPacketWithBackPressure(
@@ -46,7 +46,9 @@ export function mapArrayBufferToMqttPacketWithBackPressure(
         index++;
         if (result.done) {
           nextDecoder();
-          return sink(result.value, abortable)
+          return AsyncTask.fromFactory((abortable: Abortable): IAsyncTaskInput<void> => {
+            return sink(result.value, abortable);
+          }, abortable)
             .successful((): AsyncTask<void> => {
               return loop(
                 bytes,

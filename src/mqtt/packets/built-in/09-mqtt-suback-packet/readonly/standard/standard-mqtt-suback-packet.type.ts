@@ -7,7 +7,7 @@ import { IMqttSubackPacketType } from '../../constants/mqtt-suback-packet-type.c
 import { IStandardMqttSubackPacketProperties } from './standard-mqtt-suback-packet-properties.type';
 
 export interface IStandardMqttSubackPacket extends IStandardMqttPacket<IMqttSubackPacketType> {
-  packetId: u16;
-  reasons: readonly IGenericStandardMqttPacketSubackReason[];
-  properties: IStandardMqttSubackPacketProperties;
+  readonly packetId: u16;
+  readonly reasons: readonly IGenericStandardMqttPacketSubackReason[];
+  readonly properties: IStandardMqttSubackPacketProperties;
 }

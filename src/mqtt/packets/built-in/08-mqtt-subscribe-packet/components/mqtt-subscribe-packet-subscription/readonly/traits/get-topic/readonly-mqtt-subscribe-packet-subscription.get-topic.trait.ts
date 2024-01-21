@@ -3,5 +3,5 @@ import {
 } from './readonly-mqtt-subscribe-packet-subscription.get-topic.function-definition';
 
 export interface IReadonlyMqttSubscribePacketSubscriptionGetTopicTrait {
-  getTopic: IReadonlyMqttSubscribePacketSubscriptionGetTopicFunction;
+  readonly getTopic: IReadonlyMqttSubscribePacketSubscriptionGetTopicFunction;
 }

@@ -1,9 +1,9 @@
 import { IReadonlyMqttPacketProperty } from '../readonly-mqtt-packet-property.type';
 
 export interface IReadonlyMqttPacketPropertyContext<GCode extends number, GName extends string, GValue> {
-  code: GCode;
-  name: GName;
-  value: GValue;
+  readonly code: GCode;
+  readonly name: GName;
+  readonly value: GValue;
 }
 
 export function createReadonlyMqttPacketProperty<GCode extends number, GName extends string, GValue>(

@@ -10,13 +10,13 @@ import {
 } from '../traits/get-properties/readonly-mqtt-publish-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttPublishPacketContext {
-  duplicate: boolean;
-  qos: QOS;
-  retain: boolean;
-  topic: IReadonlyMqttPacketTopic;
-  packetId: IReadonlyMqttPacketId | undefined; // only if qos > 0
-  properties: IReadonlyMqttPublishPacketPropertyList; // V5
-  payload: IReadonlyMqttPacketPayload;
+  readonly duplicate: boolean;
+  readonly qos: QOS;
+  readonly retain: boolean;
+  readonly topic: IReadonlyMqttPacketTopic;
+  readonly packetId: IReadonlyMqttPacketId | undefined; // only if qos > 0
+  readonly properties: IReadonlyMqttPublishPacketPropertyList; // V5
+  readonly payload: IReadonlyMqttPacketPayload;
 }
 
 export function createReadonlyMqttPublishPacket(

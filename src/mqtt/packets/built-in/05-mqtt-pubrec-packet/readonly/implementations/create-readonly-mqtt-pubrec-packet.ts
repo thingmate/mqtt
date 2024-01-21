@@ -9,9 +9,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-pubrec-packet.get-properties.function-definition';
 
 export interface ICreateReadonlyMqttPubrecPacketOptions {
-  packetId: IReadonlyMqttPacketId;
-  reason: IGenericMqttPacketPubrecReason;
-  properties: IReadonlyMqttPubrecPacketPropertyList;
+  readonly packetId: IReadonlyMqttPacketId;
+  readonly reason: IGenericMqttPacketPubrecReason;
+  readonly properties: IReadonlyMqttPubrecPacketPropertyList;
 }
 
 export function createReadonlyMqttPubrecPacket(

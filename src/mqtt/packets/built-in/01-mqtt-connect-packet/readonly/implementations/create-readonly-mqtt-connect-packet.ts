@@ -12,15 +12,15 @@ import {
 } from '../traits/get-protocol-name/readonly-mqtt-connect-packet.get-protocol-name.function-definition';
 
 export interface IReadonlyMqttConnectPacketContext {
-  protocolName: IReadonlyMqttConnectPacketProtocolName;
-  protocolVersion: IMqttProtocolVersion;
-  clean: boolean;
-  keepalive: u16;
-  properties: IReadonlyMqttConnectPacketPropertyList;
-  clientId: IReadonlyStringBuffer;
-  will: IReadonlyMqttConnectPacketWill | undefined;
-  username: IReadonlyStringBuffer | undefined;
-  password: IReadonlyStringBuffer | undefined;
+  readonly protocolName: IReadonlyMqttConnectPacketProtocolName;
+  readonly protocolVersion: IMqttProtocolVersion;
+  readonly clean: boolean;
+  readonly keepalive: u16;
+  readonly properties: IReadonlyMqttConnectPacketPropertyList;
+  readonly clientId: IReadonlyStringBuffer;
+  readonly will: IReadonlyMqttConnectPacketWill | undefined;
+  readonly username: IReadonlyStringBuffer | undefined;
+  readonly password: IReadonlyStringBuffer | undefined;
 }
 
 export function createReadonlyMqttConnectPacket(

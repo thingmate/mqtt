@@ -15,7 +15,7 @@ import { mapMqttPacketToUint8ArrayWithBackPressure } from '../functions/map-mqtt
 import { IWebSocketAdvancedMqttClient } from './websocket-advanced-mqtt-client.type';
 
 export interface IOpenWebSocketAdvancedMqttClientOptions extends Omit<IOpenWebSocketStreamOptions, 'binaryType'> {
-  protocolVersion?: IMqttProtocolVersion,
+  readonly protocolVersion?: IMqttProtocolVersion,
 }
 
 export function openWebSocketAdvancedMqttClient(
@@ -46,6 +46,7 @@ export function openWebSocketAdvancedMqttClient(
         protocolVersion,
       });
 
+      const getState = websocketStream.getState;
       const close = websocketStream.close;
       const untilClosed = websocketStream.untilClosed;
 
@@ -54,6 +55,7 @@ export function openWebSocketAdvancedMqttClient(
           input$,
           $output,
         }),
+        getState,
         close,
         untilClosed,
       };

@@ -5,7 +5,7 @@ import {
 import { ISubscribeErrorName } from './subscribe-error-name.constant';
 
 export interface ISubscribeErrorOptions extends ICustomErrorMessageOptionalOptions {
-  reasonCode?: SUBACK_REASON_CODE;
+  readonly reasonCode?: SUBACK_REASON_CODE;
 }
 
 export interface ISubscribeErrorProperties {

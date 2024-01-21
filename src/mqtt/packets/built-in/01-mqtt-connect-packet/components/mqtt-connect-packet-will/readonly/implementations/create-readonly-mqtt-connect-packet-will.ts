@@ -7,11 +7,11 @@ import {
 } from '../traits/get-properties/readonly-mqtt-connect-packet-will.get-properties.function-definition';
 
 export interface IReadonlyMqttConnectPacketWillContext {
-  retain: boolean;
-  qos: QOS;
-  properties: IReadonlyMqttConnectPacketWillPropertyList;
-  topic: IReadonlyMqttPacketTopic;
-  payload: IReadonlyMqttPacketPayload;
+  readonly retain: boolean;
+  readonly qos: QOS;
+  readonly properties: IReadonlyMqttConnectPacketWillPropertyList;
+  readonly topic: IReadonlyMqttPacketTopic;
+  readonly payload: IReadonlyMqttPacketPayload;
 }
 
 export function createReadonlyMqttConnectPacketWill(

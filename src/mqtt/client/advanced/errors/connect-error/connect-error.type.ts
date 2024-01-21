@@ -5,7 +5,7 @@ import {
 import { IConnectErrorName } from './connect-error-name.constant';
 
 export interface IConnectErrorOptions extends ICustomErrorMessageOptionalOptions {
-  reasonCode?: CONNACK_REASON_CODE;
+  readonly reasonCode?: CONNACK_REASON_CODE;
 }
 
 export interface IConnectErrorProperties {

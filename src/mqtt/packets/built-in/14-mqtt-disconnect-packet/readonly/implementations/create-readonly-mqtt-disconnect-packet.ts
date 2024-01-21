@@ -8,8 +8,8 @@ import {
 } from '../traits/get-properties/readonly-mqtt-disconnect-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttDisconnectPacketContext {
-  reason: IGenericMqttPacketDisconnectReason;
-  properties: IReadonlyMqttDisconnectPacketPropertyList;
+  readonly reason: IGenericMqttPacketDisconnectReason;
+  readonly properties: IReadonlyMqttDisconnectPacketPropertyList;
 }
 
 export function createReadonlyMqttDisconnectPacket(

@@ -5,7 +5,7 @@ import {
 import { IDisconnectErrorName } from './disconnect-error-name.constant';
 
 export interface IDisconnectErrorOptions extends ICustomErrorMessageOptionalOptions {
-  reasonCode?: DISCONNECT_REASON_CODE;
+  readonly reasonCode?: DISCONNECT_REASON_CODE;
 }
 
 export interface IDisconnectErrorProperties {

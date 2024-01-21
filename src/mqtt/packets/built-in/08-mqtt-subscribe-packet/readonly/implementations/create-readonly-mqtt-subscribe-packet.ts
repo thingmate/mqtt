@@ -9,9 +9,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-subscribe-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttSubscribePacketContext {
-  packetId: IReadonlyMqttPacketId;
-  properties: IReadonlyMqttSubscribePacketPropertyList;
-  subscriptions: readonly IReadonlyMqttSubscribePacketSubscription[];
+  readonly packetId: IReadonlyMqttPacketId;
+  readonly properties: IReadonlyMqttSubscribePacketPropertyList;
+  readonly subscriptions: readonly IReadonlyMqttSubscribePacketSubscription[];
 }
 
 export function createReadonlyMqttSubscribePacket(

@@ -1,8 +1,8 @@
 import { IReadonlyMqttPacketReason } from '../readonly-mqtt-packet-reason.type';
 
 export interface IReadonlyMqttPacketReasonContext<GCode extends number> {
-  code: GCode;
-  message: string;
+  readonly code: GCode;
+  readonly message: string;
 }
 
 export function createReadonlyMqttPacketReason<GCode extends number>(

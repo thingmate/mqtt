@@ -1,8 +1,9 @@
+import { Writable } from '@lirx/utils';
 import { encodeStringToUint8Array } from '../functions/encode-string-to-uint8-array';
 import { createReadonlyStringBuffer, IReadonlyStringBufferContext } from '../readonly/implementations/create-readonly-string-buffer';
 import { IStringBuffer } from '../string-buffer.type';
 
-export interface IStringBufferContext extends IReadonlyStringBufferContext {
+export interface IStringBufferContext extends Writable<Pick<IReadonlyStringBufferContext, 'buffer'>>, Omit<IReadonlyStringBufferContext, 'buffer'> {
 }
 
 export function createStringBuffer(

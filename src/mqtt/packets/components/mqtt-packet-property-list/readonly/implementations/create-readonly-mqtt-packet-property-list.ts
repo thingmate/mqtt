@@ -8,7 +8,7 @@ import {
 } from '../traits/get/readonly-mqtt-packet-property-list.get.function-definition';
 
 export interface IReadonlyMqttPacketPropertyListContext<GProperty extends IGenericReadonlyMqttPacketProperty> {
-  map: Map<string, GProperty[]>;
+  readonly map: Map<string, GProperty[]>;
 }
 
 export function createReadonlyMqttPacketPropertyList<GProperty extends IGenericReadonlyMqttPacketProperty>(

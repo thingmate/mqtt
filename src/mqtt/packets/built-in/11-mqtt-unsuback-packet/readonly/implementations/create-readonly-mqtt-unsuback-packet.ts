@@ -9,9 +9,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-unsuback-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttUnsubackPacketContext {
-  packetId: IReadonlyMqttPacketId;
-  properties: IReadonlyMqttUnsubackPacketPropertyList;
-  reason: IGenericMqttPacketUnsubackReason;
+  readonly packetId: IReadonlyMqttPacketId;
+  readonly properties: IReadonlyMqttUnsubackPacketPropertyList;
+  readonly reason: IGenericMqttPacketUnsubackReason;
 }
 
 export function createReadonlyMqttUnsubackPacket(

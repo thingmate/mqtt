@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { AsyncTask, IAbortableOptions } from '@lirx/async-task';
 import {
   IStandardMqttPublishPacket,
 } from '../../../../packets/built-in/03-mqtt-publish-packet/readonly/standard/standard-mqtt-publish-packet.type';
@@ -17,11 +17,11 @@ import {
 
 export interface IMqttClientPublishFunctionOptions extends //
   Pick<IStandardMqttPublishPacket, 'topic'>,
-  Partial<Pick<IStandardMqttPublishPacket, 'duplicate' | 'qos' | 'retain' | 'packetId' | 'properties'>>
+  Partial<Pick<IStandardMqttPublishPacket, 'duplicate' | 'qos' | 'retain' | 'packetId' | 'properties'>>,
+  IAbortableOptions
 //
 {
-  payload: IStringOrUint8Array;
-  abortable: Abortable;
+  readonly payload: IStringOrUint8Array;
 }
 
 export type IStandardMqttPubrecAndPubcompPacketPair = [

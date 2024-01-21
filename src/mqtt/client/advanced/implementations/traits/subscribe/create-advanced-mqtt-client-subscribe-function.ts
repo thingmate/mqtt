@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask, IAsyncTaskErrorFunction, IAsyncTaskSuccessFunction } from '@lirx/async-task';
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import { QOS } from '../../../../../constants/qos.enum';
 import {
   IReadonlyMqttSubscribePacketSubscription,
@@ -31,9 +31,9 @@ import { IAdvancedMqttClientSubscribeFunction } from '../../../traits/subscribe/
 import { pushSourceWithBackPressureToAsyncTask } from '../../functions/push-source-with-back-pressure-to-async-task';
 
 export interface ICreateAdvancedMqttClientSubscribeFunctionOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
-  packetIdManager: IMqttPacketIdManager;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly packetIdManager: IMqttPacketIdManager;
 }
 
 export function createAdvancedMqttClientSubscribeFunction(
@@ -58,8 +58,7 @@ export function createAdvancedMqttClientSubscribeFunction(
       packet: IGenericMqttPacket,
       success: IAsyncTaskSuccessFunction<IReadonlyMqttSubackPacket>,
       error: IAsyncTaskErrorFunction,
-      abortable: Abortable,
-    ): AsyncTask<void> => {
+    ): void => {
       if (
         isMqttSubackPacket(packet)
         && (packet.getPacketId().get() === packetId.get())
@@ -86,7 +85,6 @@ export function createAdvancedMqttClientSubscribeFunction(
           error(createSubscribeError({ message: `SUBACK reasonCodes don't have the same length as input subscriptions` }));
         }
       }
-      return AsyncTask.void(abortable);
     }, input$, abortable);
 
     return $output(subscribePacket, abortable)

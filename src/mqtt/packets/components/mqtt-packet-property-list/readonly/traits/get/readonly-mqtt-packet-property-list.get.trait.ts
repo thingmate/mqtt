@@ -2,5 +2,5 @@ import { IGenericReadonlyMqttPacketProperty } from '../../../components/mqtt-pac
 import { IReadonlyMqttPacketPropertyListGetFunction } from './readonly-mqtt-packet-property-list.get.function-definition';
 
 export interface IReadonlyMqttPacketPropertyListGetTrait<GProperty extends IGenericReadonlyMqttPacketProperty> {
-  get: IReadonlyMqttPacketPropertyListGetFunction<GProperty>;
+  readonly get: IReadonlyMqttPacketPropertyListGetFunction<GProperty>;
 }

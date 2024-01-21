@@ -1,4 +1,4 @@
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import {
   createMqttPacketIdManagerInitializedAtRandom,
 } from '../../../packets/components/mqtt-packet-id-manager/implementations/create-mqtt-packet-id-manager-initialized-at-random';
@@ -32,8 +32,8 @@ import { createAdvancedMqttClientUnsubscribeFunction } from './traits/unsubscrib
 import { createAdvancedMqttClientWatchFunction } from './traits/watch/create-advanced-mqtt-client-watch-function';
 
 export interface ICreateAdvancedMqttClient {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
 }
 
 export function createAdvancedMqttClient(

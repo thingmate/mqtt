@@ -6,6 +6,6 @@ import { IMqttDisconnectPacketType } from '../../constants/mqtt-disconnect-packe
 import { IStandardMqttDisconnectPacketProperties } from './standard-mqtt-disconnect-packet-properties.type';
 
 export interface IStandardMqttDisconnectPacket extends IStandardMqttPacket<IMqttDisconnectPacketType> {
-  reason: IGenericStandardMqttPacketDisconnectReason;
-  properties: IStandardMqttDisconnectPacketProperties;
+  readonly reason: IGenericStandardMqttPacketDisconnectReason;
+  readonly properties: IStandardMqttDisconnectPacketProperties;
 }

@@ -236,7 +236,6 @@ export function standardMqttPacketPropertyToReadonlyMqttPacketProperty(
   input: IGenericStandardMqttPacketProperty,
 ): IGenericReadonlyMqttPacketProperty {
   switch (input.getCode()) {
-    // TODO
     case MQTT_PACKET_PAYLOAD_FORMAT_INDICATOR_PROPERTY_CODE: // 01
       return standardMqttPacketPayloadFormatIndicatorPropertyToMqttPacketPayloadFormatIndicatorProperty(input as IStandardMqttPacketPayloadFormatIndicatorProperty);
     case MQTT_PACKET_MESSAGE_EXPIRY_INTERVAL_PROPERTY_CODE:  // 02

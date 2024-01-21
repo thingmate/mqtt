@@ -6,7 +6,7 @@ import {
 import { IAdvancedMqttClientPingFunction } from '../../../traits/ping/advanced-mqtt-client.ping.function-definition';
 
 export interface ICreateAdvancedMqttClientPingFunction {
-  ping: IAdvancedMqttClientPingFunction;
+  readonly ping: IAdvancedMqttClientPingFunction;
 }
 
 export function createAdvancedMqttClientPingLoopFunction(

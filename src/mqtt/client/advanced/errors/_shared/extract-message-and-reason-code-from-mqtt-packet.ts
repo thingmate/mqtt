@@ -7,13 +7,13 @@ import {
 } from '../../../../packets/components/mqtt-packet-reason/readonly/readonly-mqtt-packet-reason.type';
 
 export interface IMqttPacketHavingGetPropertiesAndGetReason {
-  getProperties: () => IGenericReadonlyMqttPacketPropertyList;
-  getReason: () => IGenericReadonlyMqttPacketReason;
+  readonly getProperties: () => IGenericReadonlyMqttPacketPropertyList;
+  readonly getReason: () => IGenericReadonlyMqttPacketReason;
 }
 
 export interface IMessageAndReasonCode {
-  message: string;
-  reasonCode: number;
+  readonly message: string;
+  readonly reasonCode: number;
 }
 
 export function extractMessageAndReasonCodeFromMqttPacket(

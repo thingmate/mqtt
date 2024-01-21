@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask, IAsyncTaskErrorFunction, IAsyncTaskSuccessFunction } from '@lirx/async-task';
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import {
   IReadonlyMqttConnectPacket,
 } from '../../../../../packets/built-in/01-mqtt-connect-packet/readonly/readonly-mqtt-connect-packet.type';
@@ -17,8 +17,8 @@ import { IAdvancedMqttClientConnectFunction } from '../../../traits/connect/adva
 import { pushSourceWithBackPressureToAsyncTask } from '../../functions/push-source-with-back-pressure-to-async-task';
 
 export interface ICreateAdvancedMqttClientConnectFunctionOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
 }
 
 export function createAdvancedMqttClientConnectFunction(
@@ -36,12 +36,12 @@ export function createAdvancedMqttClientConnectFunction(
     if (started) {
       return AsyncTask.error(new Error(`connect already done`), abortable);
     } else {
+      started = true;
       const untilMqttConnackPacketReceived = pushSourceWithBackPressureToAsyncTask((
         packet: IGenericMqttPacket,
         success: IAsyncTaskSuccessFunction<IReadonlyMqttConnackPacket>,
         error: IAsyncTaskErrorFunction,
-        abortable: Abortable,
-      ): AsyncTask<void> => {
+      ): void => {
         if (isMqttConnackPacket(packet)) {
           if (packet.getReason().getCode() === CONNACK_REASON_CODE.SUCCESS) {
             success(packet);
@@ -51,7 +51,6 @@ export function createAdvancedMqttClientConnectFunction(
         } else {
           error(createConnectError({ message: `Expected CONNACK packet` }));
         }
-        return AsyncTask.void(abortable);
       }, input$, abortable);
 
       return $output(connectPacket, abortable)

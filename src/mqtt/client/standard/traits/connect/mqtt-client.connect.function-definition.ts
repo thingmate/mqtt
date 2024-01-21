@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { AsyncTask, IAbortableOptions } from '@lirx/async-task';
 import {
   IStandardMqttConnectPacketWill,
 } from '../../../../packets/built-in/01-mqtt-connect-packet/components/mqtt-connect-packet-will/readonly/standard/standard-mqtt-connect-packet-will.type';
@@ -10,11 +10,11 @@ import {
 } from '../../../../packets/built-in/02-mqtt-connack-packet/readonly/standard/standard-mqtt-connack-packet.type';
 
 export interface IMqttClientConnectFunctionOptions extends //
-  Partial<Pick<IStandardMqttConnectPacket, 'protocolVersion' | 'clean' | 'keepalive' | 'properties' | 'clientId' | 'username' | 'password'>>
+  Partial<Pick<IStandardMqttConnectPacket, 'protocolVersion' | 'clean' | 'keepalive' | 'properties' | 'clientId' | 'username' | 'password'>>,
+  IAbortableOptions
 //
 {
-  will?: IStandardMqttConnectPacketWill; // TODO
-  abortable: Abortable;
+  readonly will?: IStandardMqttConnectPacketWill; // TODO
 }
 
 export interface IMqttClientConnectFunction {

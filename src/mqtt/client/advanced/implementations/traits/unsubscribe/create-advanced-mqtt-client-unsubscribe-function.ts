@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask, IAsyncTaskErrorFunction, IAsyncTaskSuccessFunction } from '@lirx/async-task';
-import { IPushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure, IPushSourceWithBackPressure } from '@lirx/stream';
 import {
   IReadonlyMqttUnsubscribePacket,
 } from '../../../../../packets/built-in/10-mqtt-unsubscribe-packet/readonly/readonly-mqtt-unsubscribe-packet.type';
@@ -22,9 +22,9 @@ import { IAdvancedMqttClientUnsubscribeFunction } from '../../../traits/unsubscr
 import { pushSourceWithBackPressureToAsyncTask } from '../../functions/push-source-with-back-pressure-to-async-task';
 
 export interface ICreateAdvancedMqttClientUnsubscribeFunctionOptions {
-  input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
-  packetIdManager: IMqttPacketIdManager;
+  readonly input$: IPushSourceWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly packetIdManager: IMqttPacketIdManager;
 }
 
 export function createAdvancedMqttClientUnsubscribeFunction(
@@ -48,8 +48,7 @@ export function createAdvancedMqttClientUnsubscribeFunction(
       packet: IGenericMqttPacket,
       success: IAsyncTaskSuccessFunction<IReadonlyMqttUnsubackPacket>,
       error: IAsyncTaskErrorFunction,
-      abortable: Abortable,
-    ): AsyncTask<void> => {
+    ): void => {
       if (
         isMqttUnsubackPacket(packet)
         && (packet.getPacketId().get() === packetId.get())
@@ -60,7 +59,6 @@ export function createAdvancedMqttClientUnsubscribeFunction(
           error(createUnsubscribeErrorFromMqttUnsubackPacket(packet));
         }
       }
-      return AsyncTask.void(abortable);
     }, input$, abortable);
 
     return $output(unsubscribePacket, abortable)

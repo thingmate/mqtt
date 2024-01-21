@@ -1,4 +1,4 @@
-export const enum SUBACK_REASON_CODE {
+export enum SUBACK_REASON_CODE {
   GRANTED_QOS_0 = 0,
   GRANTED_QOS_1 = 1,
   GRANTED_QOS_2 = 2,

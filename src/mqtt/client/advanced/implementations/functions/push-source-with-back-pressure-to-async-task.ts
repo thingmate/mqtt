@@ -1,13 +1,13 @@
 import {
   Abortable,
+  AbortableController,
+  ASYNC_TASK_SUCCESS,
   AsyncTask,
   IAsyncTaskConstraint,
   IAsyncTaskErrorFunction,
-  IAsyncTaskSuccessFunction,
-  AbortableController,
-  ASYNC_TASK_SUCCESS,
   IAsyncTaskInput,
   IAsyncTaskResolvedState,
+  IAsyncTaskSuccessFunction,
 } from '@lirx/async-task';
 import { IPushSourceWithBackPressure } from '@lirx/stream';
 import { cleanUnsubscribeSet, IUnsubscribeSet, unsubscribeSet } from '@lirx/unsubscribe';
@@ -18,7 +18,7 @@ export interface IPushSourceWithBackPressureToAsyncTaskOnValueFunction<GIn, GOut
     success: IAsyncTaskSuccessFunction<GOut>,
     error: IAsyncTaskErrorFunction,
     abortable: Abortable,
-  ): AsyncTask<void>;
+  ): IAsyncTaskInput<void>;
 }
 
 export function pushSourceWithBackPressureToAsyncTask<GIn, GOut extends IAsyncTaskConstraint<GOut>>(
@@ -60,7 +60,7 @@ export function pushSourceWithBackPressureToAsyncTask<GIn, GOut extends IAsyncTa
       (
         value: GIn,
         abortable: Abortable,
-      ): AsyncTask<void> => {
+      ): IAsyncTaskInput<void> => {
         return onValue(
           value,
           success,

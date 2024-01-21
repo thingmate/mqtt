@@ -6,8 +6,8 @@ import { IReadonlyMqttAuthPacket } from '../readonly-mqtt-auth-packet.type';
 import { IReadonlyMqttAuthPacketPropertyList } from '../traits/get-properties/readonly-mqtt-auth-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttAuthPacketContext {
-  reason: IGenericMqttPacketAuthReason;
-  properties: IReadonlyMqttAuthPacketPropertyList;
+  readonly reason: IGenericMqttPacketAuthReason;
+  readonly properties: IReadonlyMqttAuthPacketPropertyList;
 }
 
 export function createReadonlyMqttAuthPacket(

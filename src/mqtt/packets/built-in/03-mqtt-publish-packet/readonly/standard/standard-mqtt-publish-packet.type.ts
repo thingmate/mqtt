@@ -6,11 +6,11 @@ import { IMqttPublishPacketType } from '../../constants/mqtt-publish-packet-type
 import { IStandardMqttPublishPacketProperties } from './standard-mqtt-publish-packet-properties.type';
 
 export interface IStandardMqttPublishPacket extends IStandardMqttPacket<IMqttPublishPacketType> {
-  duplicate: boolean;
-  qos: QOS;
-  retain: boolean;
-  topic: string;
-  packetId: u16 | undefined; // only if qos > 0
-  properties: IStandardMqttPublishPacketProperties;
-  payload: IReadonlyMqttPacketPayload;
+  readonly duplicate: boolean;
+  readonly qos: QOS;
+  readonly retain: boolean;
+  readonly topic: string;
+  readonly packetId: u16 | undefined; // only if qos > 0
+  readonly properties: IStandardMqttPublishPacketProperties;
+  readonly payload: IReadonlyMqttPacketPayload;
 }

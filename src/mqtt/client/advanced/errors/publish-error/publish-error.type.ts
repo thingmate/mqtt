@@ -17,7 +17,7 @@ export type IPublishReasonCode =
   ;
 
 export interface IPublishErrorOptions extends ICustomErrorMessageOptionalOptions {
-  reasonCode?: IPublishReasonCode;
+  readonly reasonCode?: IPublishReasonCode;
 }
 
 export interface IPublishErrorProperties {

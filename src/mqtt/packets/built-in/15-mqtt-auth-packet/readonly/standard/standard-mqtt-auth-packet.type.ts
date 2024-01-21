@@ -6,6 +6,6 @@ import { IMqttAuthPacketType } from '../../constants/mqtt-auth-packet-type.const
 import { IStandardMqttAuthPacketProperties } from './standard-mqtt-auth-packet-properties.type';
 
 export interface IStandardMqttAuthPacket extends IStandardMqttPacket<IMqttAuthPacketType> {
-  reason: IGenericStandardMqttPacketAuthReason;
-  properties: IStandardMqttAuthPacketProperties;
+  readonly reason: IGenericStandardMqttPacketAuthReason;
+  readonly properties: IStandardMqttAuthPacketProperties;
 }

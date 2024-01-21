@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask } from '@lirx/async-task';
+import { AsyncTask, IAbortableOptions } from '@lirx/async-task';
 import {
   IStandardMqttSubscribePacketSubscription,
 } from '../../../../packets/built-in/08-mqtt-subscribe-packet/components/mqtt-subscribe-packet-subscription/readonly/standard/standard-mqtt-subscribe-packet-subscription.type';
@@ -12,10 +12,10 @@ import {
 export interface IMqttClientSubscribeFunctionOptions extends //
   Pick<IStandardMqttSubscribePacketSubscription, 'topic'>,
   Partial<Pick<IStandardMqttSubscribePacketSubscription, 'qos' | 'noLocal' | 'retainAsPublished' | 'retainHandling'>>,
-  Partial<Pick<IStandardMqttSubscribePacket, 'packetId' | 'properties'>>
+  Partial<Pick<IStandardMqttSubscribePacket, 'packetId' | 'properties'>>,
+  IAbortableOptions
 //
 {
-  abortable: Abortable;
 }
 
 export interface IMqttClientSubscribeFunction {

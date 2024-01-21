@@ -4,7 +4,7 @@ import { IMqttUnsubscribePacketType } from '../../constants/mqtt-unsubscribe-pac
 import { IStandardMqttUnsubscribePacketProperties } from './standard-mqtt-unsubscribe-packet-properties.type';
 
 export interface IStandardMqttUnsubscribePacket extends IStandardMqttPacket<IMqttUnsubscribePacketType> {
-  packetId: u16;
-  properties: IStandardMqttUnsubscribePacketProperties;
-  unsubscriptions: readonly string[];
+  readonly packetId: u16;
+  readonly properties: IStandardMqttUnsubscribePacketProperties;
+  readonly unsubscriptions: readonly string[];
 }

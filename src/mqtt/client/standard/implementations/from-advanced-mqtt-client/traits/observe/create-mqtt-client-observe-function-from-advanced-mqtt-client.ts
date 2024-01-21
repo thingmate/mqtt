@@ -1,4 +1,4 @@
-import { Abortable, AsyncTask, AbortableController } from '@lirx/async-task';
+import { Abortable, AbortableController } from '@lirx/async-task';
 import { IObservable, IObserver, IUnsubscribeOfObservable } from '@lirx/core';
 import {
   IStandardMqttPublishPacket,
@@ -12,9 +12,9 @@ import { IMqttClientSubscribeFunction } from '../../../../traits/subscribe/mqtt-
 import { IMqttClientUnsubscribeFunction } from '../../../../traits/unsubscribe/mqtt-client.unsubscribe.function-definition';
 
 export interface ICreateMqttClientObserveFunctionFromAdvancedMqttClientOptions {
-  subscribe: IMqttClientSubscribeFunction;
-  unsubscribe: IMqttClientUnsubscribeFunction;
-  on: IMqttClientOnFunction;
+  readonly subscribe: IMqttClientSubscribeFunction;
+  readonly unsubscribe: IMqttClientUnsubscribeFunction;
+  readonly on: IMqttClientOnFunction;
 }
 
 export function createMqttClientObserveFunctionFromAdvancedMqttClient(
@@ -40,10 +40,8 @@ export function createMqttClientObserveFunctionFromAdvancedMqttClient(
       source(
         (
           packet: IStandardMqttPublishPacket,
-          abortable: Abortable,
-        ): AsyncTask<void> => {
+        ): void => {
           emit(packet.payload);
-          return AsyncTask.void(abortable);
         },
         abortable,
       );

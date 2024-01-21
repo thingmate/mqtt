@@ -7,7 +7,7 @@ import { IMqttUnsubackPacketType } from '../../constants/mqtt-unsuback-packet-ty
 import { IStandardMqttUnsubackPacketProperties } from './standard-mqtt-unsuback-packet-properties.type';
 
 export interface IStandardMqttUnsubackPacket extends IStandardMqttPacket<IMqttUnsubackPacketType> {
-  packetId: u16;
-  reason: IGenericStandardMqttPacketUnsubackReason;
-  properties: IStandardMqttUnsubackPacketProperties;
+  readonly packetId: u16;
+  readonly reason: IGenericStandardMqttPacketUnsubackReason;
+  readonly properties: IStandardMqttUnsubackPacketProperties;
 }

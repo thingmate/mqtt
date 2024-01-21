@@ -11,13 +11,13 @@ import {
 import { IStandardMqttConnectPacketProperties } from './standard-mqtt-connect-packet-properties.type';
 
 export interface IStandardMqttConnectPacket extends IStandardMqttPacket<IMqttConnectPacketType> {
-  protocolName: IReadonlyMqttConnectPacketProtocolName;
-  protocolVersion: IMqttProtocolVersion;
-  clean: boolean;
-  keepalive: u16;
-  properties: IStandardMqttConnectPacketProperties;
-  clientId: string;
-  will: IStandardMqttConnectPacketWill | undefined;
-  username: string | undefined;
-  password: string | undefined;
+  readonly protocolName: IReadonlyMqttConnectPacketProtocolName;
+  readonly protocolVersion: IMqttProtocolVersion;
+  readonly clean: boolean;
+  readonly keepalive: u16;
+  readonly properties: IStandardMqttConnectPacketProperties;
+  readonly clientId: string;
+  readonly will: IStandardMqttConnectPacketWill | undefined;
+  readonly username: string | undefined;
+  readonly password: string | undefined;
 }

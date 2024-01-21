@@ -1,5 +1,5 @@
 import { IReadonlyStringBufferToStringFunction } from './readonly-string-buffer.to-string.function-definition';
 
 export interface IReadonlyStringBufferToStringTrait {
-  toString: IReadonlyStringBufferToStringFunction;
+  readonly toString: IReadonlyStringBufferToStringFunction;
 }

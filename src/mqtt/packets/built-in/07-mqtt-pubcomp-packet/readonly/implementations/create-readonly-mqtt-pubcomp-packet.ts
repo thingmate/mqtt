@@ -1,4 +1,3 @@
-;
 import { IReadonlyMqttPacketId } from '../../../../components/mqtt-packet-id/readonly/readonly-mqtt-packet-id.type';
 import {
   IGenericMqttPacketPubcompReason,
@@ -10,9 +9,9 @@ import {
 } from '../traits/get-properties/readonly-mqtt-pubcomp-packet.get-properties.function-definition';
 
 export interface IReadonlyMqttPubcompPacketContext {
-  packetId: IReadonlyMqttPacketId;
-  reason: IGenericMqttPacketPubcompReason;
-  properties: IReadonlyMqttPubcompPacketPropertyList;
+  readonly packetId: IReadonlyMqttPacketId;
+  readonly reason: IGenericMqttPacketPubcompReason;
+  readonly properties: IReadonlyMqttPubcompPacketPropertyList;
 }
 
 export function createReadonlyMqttPubcompPacket(

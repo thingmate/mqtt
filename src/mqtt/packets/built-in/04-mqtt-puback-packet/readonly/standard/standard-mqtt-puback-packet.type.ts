@@ -7,7 +7,7 @@ import { IMqttPubackPacketType } from '../../constants/mqtt-puback-packet-type.c
 import { IStandardMqttPubackPacketProperties } from './standard-mqtt-puback-packet-properties.type';
 
 export interface IStandardMqttPubackPacket extends IStandardMqttPacket<IMqttPubackPacketType> {
-  packetId: u16;
-  reason: IGenericStandardMqttPacketPubackReason;
-  properties: IStandardMqttPubackPacketProperties;
+  readonly packetId: u16;
+  readonly reason: IGenericStandardMqttPacketPubackReason;
+  readonly properties: IStandardMqttPubackPacketProperties;
 }

@@ -1,5 +1,5 @@
 import { Abortable, AsyncTask } from '@lirx/async-task';
-import { IPushSinkWithBackPressure } from '@lirx/stream';
+import { IPurePushSinkWithBackPressure } from '@lirx/stream';
 import {
   IReadonlyMqttDisconnectPacket,
 } from '../../../../../packets/built-in/14-mqtt-disconnect-packet/readonly/readonly-mqtt-disconnect-packet.type';
@@ -7,7 +7,7 @@ import { IGenericMqttPacket } from '../../../../../packets/components/mqtt-packe
 import { IAdvancedMqttClientDisconnectFunction } from '../../../traits/disconnect/advanced-mqtt-client.disconnect.function-definition';
 
 export interface ICreateAdvancedMqttClientDisconnectFunctionOptions {
-  $output: IPushSinkWithBackPressure<IGenericMqttPacket>;
+  readonly $output: IPurePushSinkWithBackPressure<IGenericMqttPacket>;
 }
 
 export function createAdvancedMqttClientDisconnectFunction(
